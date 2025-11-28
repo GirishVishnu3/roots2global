@@ -47,7 +47,7 @@ export class ErrorBoundary extends Component<Props, State> {
         <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
           <div className="max-w-md w-full text-center">
             <div className="bg-white rounded-lg shadow-lg p-8">
-              <AlertCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
+              <AlertCircle className="size-16 text-red-500 mx-auto mb-4" />
               <h1 className="text-2xl font-bold mb-2">Something went wrong</h1>
               <p className="text-gray-600 mb-6">
                 We&apos;re sorry, but something unexpected happened. Please try refreshing the page.
@@ -59,7 +59,7 @@ export class ErrorBoundary extends Component<Props, State> {
                 }}
                 className="inline-flex items-center space-x-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
               >
-                <RefreshCw className="w-5 h-5" />
+                <RefreshCw className="size-5" />
                 <span>Refresh Page</span>
               </button>
             </div>

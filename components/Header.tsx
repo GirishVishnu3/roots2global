@@ -170,12 +170,12 @@ export default function Header() {
           <div className="container mx-auto px-4 flex items-center justify-center relative">
             <div className="flex items-center justify-center space-x-6 md:space-x-8 flex-1">
               <div className="flex items-center space-x-2 animate-pulse">
-                <Sparkles className="w-4 h-4" />
+                <Sparkles className="size-4" />
                 <span className="font-semibold">Free Shipping Worldwide!</span>
               </div>
               <div className="hidden md:block w-px h-4 bg-white/30"></div>
               <div className="flex items-center space-x-2 text-primary-100">
-                <TrendingUp className="w-4 h-4 animate-pulse" />
+                <TrendingUp className="size-4 animate-pulse" />
                 <span className="font-bold text-white">
                   <span className="inline-block min-w-[4ch] text-right tabular-nums">{liveVisitors.toLocaleString()}</span>
                   <span className="ml-1">people browsing now</span>
@@ -186,7 +186,7 @@ export default function Header() {
               onClick={() => setShowPromoBanner(false)}
               className="absolute right-4 hover:text-white/80 transition-colors"
             >
-              <X className="w-4 h-4" />
+              <X className="size-4" />
             </button>
           </div>
           {/* Animated background pattern */}
@@ -204,13 +204,13 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="text-xl md:text-2xl font-bold text-primary-600 mr-6 md:mr-8 lg:mr-10 whitespace-nowrap hover:text-primary-700 transition-colors flex items-center space-x-2 group">
             <span className="relative">
-              <span className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full animate-ping"></span>
-              <span className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full"></span>
+              <span className="absolute -top-1 -right-1 size-2 bg-green-500 rounded-full animate-ping"></span>
+              <span className="absolute -top-1 -right-1 size-2 bg-green-500 rounded-full"></span>
             </span>
             <span className="bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
               Roots2Global
             </span>
-            <Shield className="w-5 h-5 text-primary-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <Shield className="size-5 text-primary-600 opacity-0 group-hover:opacity-100 transition-opacity" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -255,12 +255,12 @@ export default function Header() {
                 onFocus={() => searchQuery.length > 0 && setShowSearch(true)}
                 className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all duration-200"
               />
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 size-5" />
             </form>
             
             {/* Search Suggestions Dropdown */}
             {showSearch && searchQuery.length > 0 && searchSuggestions.length > 0 && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-white border rounded-lg shadow-xl z-50 max-h-64 overflow-y-auto">
+              <div className="absolute top-full inset-x-0 mt-2 bg-white border rounded-lg shadow-xl z-50 max-h-64 overflow-y-auto">
                 {searchSuggestions.map((suggestion, index) => (
                   <button
                     key={index}
@@ -271,7 +271,7 @@ export default function Header() {
                     }}
                     className="w-full text-left px-4 py-3 hover:bg-primary-50 transition-colors flex items-center space-x-2"
                   >
-                    <Search className="w-4 h-4 text-gray-400" />
+                    <Search className="size-4 text-gray-400" />
                     <span>{suggestion}</span>
                   </button>
                 ))}
@@ -296,14 +296,14 @@ export default function Header() {
                     >
                       <div className="relative flip-3d" style={{ perspective: '1000px' }}>
                         <div className="flip-3d-inner">
-                          <div className="flip-3d-front w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white text-xs font-bold shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:scale-110" style={{ transformStyle: 'preserve-3d', backfaceVisibility: 'hidden' }}>
+                          <div className="flip-3d-front size-8 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white text-xs font-bold shadow-md group-hover:shadow-xl transition-all duration-300 group-hover:scale-110" style={{ transformStyle: 'preserve-3d', backfaceVisibility: 'hidden' }}>
                             {getUserInitials()}
                           </div>
-                          <div className="flip-3d-back w-8 h-8 rounded-full bg-gradient-to-br from-primary-700 to-primary-900 flex items-center justify-center text-white text-xs font-bold shadow-md" style={{ transform: 'rotateY(180deg)', backfaceVisibility: 'hidden', position: 'absolute', top: 0, left: 0 }}>
-                            <User className="w-4 h-4" />
+                          <div className="flip-3d-back size-8 rounded-full bg-gradient-to-br from-primary-700 to-primary-900 flex items-center justify-center text-white text-xs font-bold shadow-md" style={{ transform: 'rotateY(180deg)', backfaceVisibility: 'hidden', position: 'absolute', top: 0, left: 0 }}>
+                            <User className="size-4" />
                           </div>
                         </div>
-                        <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 border-2 border-white rounded-full animate-pulse3d"></span>
+                        <span className="absolute -top-1 -right-1 size-3 bg-green-500 border-2 border-white rounded-full animate-pulse3d"></span>
                       </div>
                       <span className="hidden md:inline text-sm font-semibold group-hover:scale-105 transition-transform duration-300">
                         {currentUser.firstName}
@@ -320,7 +320,7 @@ export default function Header() {
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors flex items-center space-x-2"
                           onClick={() => setShowUserMenu(false)}
                         >
-                          <User className="w-4 h-4" />
+                          <User className="size-4" />
                           <span>My Account</span>
                         </Link>
                         <Link
@@ -328,7 +328,7 @@ export default function Header() {
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors flex items-center space-x-2"
                           onClick={() => setShowUserMenu(false)}
                         >
-                          <ShoppingCart className="w-4 h-4" />
+                          <ShoppingCart className="size-4" />
                           <span>My Orders</span>
                         </Link>
                         <Link
@@ -336,7 +336,7 @@ export default function Header() {
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors flex items-center space-x-2"
                           onClick={() => setShowUserMenu(false)}
                         >
-                          <Heart className="w-4 h-4" />
+                          <Heart className="size-4" />
                           <span>My Wishlist</span>
                         </Link>
                         <div className="border-t my-1"></div>
@@ -347,7 +347,7 @@ export default function Header() {
                           }}
                           className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 transition-colors flex items-center space-x-2"
                         >
-                          <LogOut className="w-4 h-4" />
+                          <LogOut className="size-4" />
                           <span>Logout</span>
                         </button>
                       </div>
@@ -368,9 +368,9 @@ export default function Header() {
                 href="/wishlist"
                 className="relative p-2 text-gray-700 hover:text-primary-600 transition-all duration-200 group"
               >
-                <Heart className={`w-6 h-6 ${wishlistCount > 0 ? 'fill-primary-600 text-primary-600' : ''} group-hover:scale-110 transition-transform`} />
+                <Heart className={`size-6 ${wishlistCount > 0 ? 'fill-primary-600 text-primary-600' : ''} group-hover:scale-110 transition-transform`} />
                 {wishlistCount > 0 && (
-                  <span className="absolute top-0 right-0 bg-primary-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold animate-pulse shadow-lg">
+                  <span className="absolute top-0 right-0 bg-primary-600 text-white text-xs rounded-full size-5 flex items-center justify-center font-bold animate-pulse shadow-lg">
                     {wishlistCount}
                   </span>
                 )}
@@ -386,9 +386,9 @@ export default function Header() {
                   onMouseLeave={() => setShowCartPreview(false)}
                   className="relative p-2 text-gray-700 hover:text-primary-600 transition-all duration-200 group"
                 >
-                  <ShoppingCart className={`w-6 h-6 group-hover:scale-110 transition-transform ${totalItems > 0 ? 'animate-bounce' : ''}`} />
+                  <ShoppingCart className={`size-6 group-hover:scale-110 transition-transform ${totalItems > 0 ? 'animate-bounce' : ''}`} />
                   {totalItems > 0 && (
-                    <span className="absolute top-0 right-0 bg-primary-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold shadow-lg animate-pulse" suppressHydrationWarning>
+                    <span className="absolute top-0 right-0 bg-primary-600 text-white text-xs rounded-full size-5 flex items-center justify-center font-bold shadow-lg animate-pulse" suppressHydrationWarning>
                       {totalItems}
                     </span>
                   )}
@@ -409,7 +409,7 @@ export default function Header() {
                         const itemTotal = priceInfo.discounted * item.quantity;
                         return (
                           <div key={item.id} className="p-4 border-b hover:bg-gray-50 transition-colors flex items-center space-x-3">
-                          <div className="w-12 h-12 bg-gray-100 rounded overflow-hidden flex-shrink-0 relative">
+                          <div className="size-12 bg-gray-100 rounded overflow-hidden flex-shrink-0 relative">
                             <Image
                               src={item.image}
                               alt={item.name}
@@ -457,7 +457,7 @@ export default function Header() {
               className="md:hidden p-2 text-gray-700"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
             </button>
           </div>
         </div>
@@ -475,7 +475,7 @@ export default function Header() {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent"
                 />
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 size-5" />
               </div>
             </form>
             <div className="flex flex-col space-y-4">
