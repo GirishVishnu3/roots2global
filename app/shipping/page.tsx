@@ -1,5 +1,13 @@
 import { Truck, Clock, Globe, Shield } from 'lucide-react';
 
+/**
+* Renders shipping information layout with options, process, and notes.
+* @example
+* ShippingPage()
+* <div className="container mx-auto px-4 py-12">…</div>
+* @param {void} none - Function does not accept arguments.
+* @returns {JSX.Element} JSX for the shipping information page.
+**/
 export default function ShippingPage() {
   return (
     <div className="container mx-auto px-4 py-12">

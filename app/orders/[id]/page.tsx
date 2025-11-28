@@ -27,6 +27,14 @@ const statusSteps = [
   { key: 'delivered', label: 'Delivered', icon: CheckCircle },
 ];
 
+/**
+* Renders the detailed view for a specific order or an order-not-found prompt.
+* @example
+* OrderDetailPage()
+* <JSX.Element />
+* @param {{void}} {{}} - No parameters required.
+* @returns {{JSX.Element}} The rendered order detail or fallback view.
+**/
 export default function OrderDetailPage() {
   const params = useParams();
   const orderId = params?.id as string;

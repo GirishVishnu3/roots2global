@@ -1,5 +1,13 @@
 import { RotateCcw, Clock, Package } from 'lucide-react';
 
+/**
+* Renders the returns and refunds information page layout.
+* @example
+* ReturnsPage()
+* <div className="container mx-auto px-4 py-12">...</div>
+* @param {{void}} {{}} - This component does not accept any props.
+* @returns {{React.JSX.Element}} Returns the JSX structure for the returns page.
+**/
 export default function ReturnsPage() {
   return (
     <div className="container mx-auto px-4 py-12">

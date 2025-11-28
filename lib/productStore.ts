@@ -12,6 +12,13 @@ interface ProductStore {
 }
 
 // Load from localStorage
+/**
+* Retrieves products from localStorage when in the browser or falls back to the initial list otherwise.
+* @example
+* loadProducts()
+* [ { id: 'p1', name: 'Example Product' } ]
+* @returns {Product[]} Array of products loaded from storage or the default set.
+**/
 const loadProducts = (): Product[] => {
   if (typeof window === 'undefined') return initialProducts;
   try {

@@ -7,6 +7,14 @@ import { Plus, Edit, Trash2, Tag, Calendar, DollarSign, Percent } from 'lucide-r
 import { format } from 'date-fns';
 import toast from 'react-hot-toast';
 
+/**
+* Renders the seller coupon management dashboard with stats, a list of coupons, and modal-driven create/edit controls.
+* @example
+* SellerCouponsContent()
+* <div className="container mx-auto px-4 py-12">…</div>
+* @param {void} void - No parameters are accepted.
+* @returns {JSX.Element} A React element that displays coupon statistics, listings, and controls for managing coupons.
+**/
 function SellerCouponsContent() {
   const { coupons, addCoupon, updateCoupon, deleteCoupon } = useCouponStore();
   const [showAddModal, setShowAddModal] = useState(false);
@@ -23,6 +31,14 @@ function SellerCouponsContent() {
     active: true,
   });
 
+  /**
+  * Validates coupon data, persists create/update operations, and resets modal state.
+  * @example
+  * submitCouponForm()
+  * undefined
+  * @param {{void}} _ - No arguments are required because state is captured from closures.
+  * @returns {{void}} Completes side effects without returning a value.
+  **/
   const handleAddOrUpdate = () => {
     if (!formData.code.trim()) {
       toast.error('Coupon code is required');
@@ -64,6 +80,14 @@ function SellerCouponsContent() {
     resetForm();
   };
 
+  /**
+  * Loads coupon data into the editing form and shows the add/edit modal.
+  * @example
+  * editCoupon({ code: 'SAVE10', discountType: 'percentage', discountValue: 10, minPurchase: 0, maxDiscount: 0, validFrom: '2025-01-01', validUntil: '2025-12-31', usageLimit: 100, active: true })
+  * undefined
+  * @param {{Coupon}} {{coupon}} - Coupon whose details populate the form fields.
+  * @returns {{void}} Void return value.
+  **/
   const handleEdit = (coupon: Coupon) => {
     setEditingCoupon(coupon);
     setFormData({
@@ -87,6 +111,14 @@ function SellerCouponsContent() {
     }
   };
 
+  /****
+  * Resets coupon form state to default values for new entry.
+  * @example
+  * resetCouponForm()
+  * undefined
+  * @param {{void}} {{}} - Not used.
+  * @returns {{void}} Return description in one line.
+  ****/
   const resetForm = () => {
     setFormData({
       code: '',

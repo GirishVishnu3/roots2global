@@ -23,6 +23,14 @@ interface VisitorStore {
 }
 
 // Load from localStorage
+/**/ **
+* Retrieves the visitor analytics from localStorage or returns default counters, resetting the daily stats if the date has changed.
+* @example
+* getVisitorData()
+* { totalVisitors: 0, todayVisitors: 0, currentOnline: 0, pageViews: 0, lastUpdated: '2025-11-28T00:00:00.000Z', hourlyData: [], dailyData: [] }
+* @param {{void}} none - No arguments are required.
+* @returns {{VisitorData}} Visitor analytics totals with timestamps and history data.
+**/*/
 const loadVisitorData = (): VisitorData => {
   if (typeof window === 'undefined') {
     return {

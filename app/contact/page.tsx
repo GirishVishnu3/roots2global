@@ -4,6 +4,13 @@ import { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import toast from 'react-hot-toast';
 
+/**
+* Renders the contact page with contact details, a message form, and submission handling.
+* @example
+* ContactPage()
+* <div className="container mx-auto px-4 py-12">...</div>
+* @returns {JSX.Element} The contact page layout with interactive form elements.
+**/
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',

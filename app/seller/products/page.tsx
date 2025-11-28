@@ -8,6 +8,13 @@ import Image from 'next/image';
 import { Plus, Edit, Trash2, Search, Package, Image as ImageIcon, Upload, X, Eye } from 'lucide-react';
 import { Product } from '@/types';
 
+/**
+* Renders the seller product management screen with search, grid of products, and add/edit modal controls.
+* @example
+* SellerProductsContent()
+* <div>…</div>
+* @returns {{JSX.Element}} The UI block allowing sellers to search, view, edit, and delete their products.
+**/
 function SellerProductsContent() {
   const { products, deleteProduct } = useProductStore();
   const [searchTerm, setSearchTerm] = useState('');
@@ -204,6 +211,15 @@ function ProductModal({ product, onClose }: { product: Product | null; onClose: 
   }, [product]);
 
   // Handle image file upload (convert to base64)
+  /**
+  * Handles image input changes for product uploads and processes previews.
+  * @example
+  * handleImageChange(event, true)
+  * undefined
+  * @param {{React.ChangeEvent<HTMLInputElement>}} e - Change event triggered by the image input.
+  * @param {{boolean}} isMain - Indicates whether the image is the main product image.
+  * @returns {{void}} Performs image validation and updates form state without returning a value.
+  **/
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>, isMain: boolean = true) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -227,6 +243,15 @@ function ProductModal({ product, onClose }: { product: Product | null; onClose: 
   };
 
   // Handle URL input for images
+  /**/ **
+  * Updates the main or additional product images state with the provided URL.
+  * @example
+  * updateImage("https://example.com/image.jpg", false)
+  * undefined
+  * @param {{string}} {{url}} - Image URL to add or set as the main image.
+  * @param {{boolean}} {{isMain}} - Whether the provided URL should become the main image.
+  * @returns {{void}} Updates state and does not return a value.
+  **/*/
   const handleImageUrlChange = (url: string, isMain: boolean = true) => {
     if (isMain) {
       setFormData({ ...formData, image: url });
@@ -249,6 +274,14 @@ function ProductModal({ product, onClose }: { product: Product | null; onClose: 
     setFormData({ ...formData, images: newImages.join(', ') });
   };
 
+  /**
+  * Handles form submission for adding or updating a product with filtered prices and optional metadata.
+  * @example
+  * handleProductSubmit(event)
+  * undefined
+  * @param {{React.FormEvent}} {{e}} - Form submission event to prevent default behavior.
+  * @returns {{void}} Performs submission logic without returning a value.
+  **/
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     

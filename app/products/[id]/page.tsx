@@ -98,6 +98,14 @@ export default function ProductDetailPage() {
     setImageLoading(false);
   };
 
+  /**
+  * Toggles the wishlist status for the current product after ensuring the user is signed in.
+  * @example
+  * handleWishlist()
+  * undefined
+  * @param {{void}} {{none}} - No parameters are required.
+  * @returns {{void}} No return value.
+  */
   const handleWishlistToggle = () => {
     if (!currentUser) {
       toast.error('Please sign in to add items to wishlist');
@@ -113,6 +121,13 @@ export default function ProductDetailPage() {
     }
   };
 
+  /**
+  * Handles review submission by validating the user and comment, posting the review, and resetting the form.
+  * @example
+  * handleReviewSubmit()
+  * undefined
+  * @returns {{void}} Returns undefined after updating state.
+  **/
   const handleSubmitReview = () => {
     if (!currentUser) {
       toast.error('Please sign in to write a review');

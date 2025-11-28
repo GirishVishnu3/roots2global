@@ -3,6 +3,13 @@
 import { Shield, Lock, Truck, RotateCcw, Award } from 'lucide-react';
 import { useCurrencyStore } from '@/lib/currencyStore';
 
+/**
+* Renders a section of trust badges highlighting security, shipping, and quality assurances.
+* @example
+* TrustBadges()
+* <section className="py-12 bg-gray-50 border-y border-gray-200">...</section>
+* @returns {JSX.Element} Trust badges section markup.
+**/
 export default function TrustBadges() {
   const formatPrice = useCurrencyStore((state) => state.formatPrice);
   return (

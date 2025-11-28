@@ -1,3 +1,11 @@
+/**
+* Renders the privacy policy page with structured sections describing data practices.
+* @example
+* PrivacyPage()
+* <div className="container mx-auto px-4 py-12">...</div>
+* @param {{void}} none - No parameters are required.
+* @returns {{JSX.Element}} Fully structured privacy policy layout.
+**/
 export default function PrivacyPage() {
   return (
     <div className="container mx-auto px-4 py-12">
