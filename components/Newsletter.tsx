@@ -67,7 +67,7 @@ export default function Newsletter({ variant = 'default' }: NewsletterProps) {
     return (
       <div className="bg-primary-600 text-white rounded-lg p-6">
         <div className="flex items-center space-x-3 mb-4">
-          <Mail className="w-6 h-6" />
+          <Mail className="size-6" />
           <h3 className="text-xl font-bold">Subscribe to Our Newsletter</h3>
         </div>
         <p className="text-primary-100 mb-4">
@@ -75,7 +75,7 @@ export default function Newsletter({ variant = 'default' }: NewsletterProps) {
         </p>
         {submitted ? (
           <div className="flex items-center space-x-2 text-green-200">
-            <CheckCircle className="w-5 h-5" />
+            <CheckCircle className="size-5" />
             <span>Thank you for subscribing!</span>
           </div>
         ) : (
@@ -105,7 +105,7 @@ export default function Newsletter({ variant = 'default' }: NewsletterProps) {
     <section className="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <Mail className="w-16 h-16 mx-auto mb-6" />
+          <Mail className="size-16 mx-auto mb-6" />
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Stay Updated with Our Newsletter
           </h2>
@@ -115,7 +115,7 @@ export default function Newsletter({ variant = 'default' }: NewsletterProps) {
           </p>
           {submitted ? (
             <div className="bg-green-500 rounded-lg p-6 flex items-center justify-center space-x-3">
-              <CheckCircle className="w-6 h-6" />
+              <CheckCircle className="size-6" />
               <span className="text-lg font-semibold">Thank you for subscribing!</span>
             </div>
           ) : (
