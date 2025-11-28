@@ -263,7 +263,7 @@ export default function Header() {
               <div className="absolute top-full inset-x-0 mt-2 bg-white border rounded-lg shadow-xl z-50 max-h-64 overflow-y-auto">
                 {searchSuggestions.map((suggestion, index) => (
                   <button
-                    key={index}
+                    type="button"
                     onClick={() => {
                       setSearchQuery(suggestion);
                       router.push(`/products?search=${encodeURIComponent(suggestion)}`);
