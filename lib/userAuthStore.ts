@@ -35,6 +35,14 @@ const loadUsers = (): User[] => {
   }
 };
 
+/**
+ * Retrieves the current user from localStorage if the session is valid and active within the last 24 hours.
+ * @example
+ * getCurrentUser()
+ * { id: 1, name: 'Alice' }
+ * @param {{void}} {{unused}} - No parameters are required to invoke this helper.
+ * @returns {{User|null}} The parsed user object when a valid session exists, otherwise null.
+ **/
 const loadCurrentUser = (): User | null => {
   if (typeof window === 'undefined') return null;
   try {
@@ -77,6 +85,14 @@ const saveUsers = (users: User[]) => {
   }
 };
 
+/****
+ * Saves the provided user to localStorage or removes it if null.
+ * @example
+ * saveCurrentUser({ id: '123', name: 'Jane' })
+ * undefined
+ * @param {{User|null}} {{user}} - User object to persist, or null to clear stored user.
+ * @returns {{void}} Void.
+ ****/
 const saveCurrentUser = (user: User | null) => {
   if (typeof window === 'undefined') return;
   try {
@@ -91,6 +107,14 @@ const saveCurrentUser = (user: User | null) => {
 };
 
 // Store password hashes securely (encrypted)
+/****
+* Retrieves stored user password hashes, handling migrations and decryption errors.
+* @example
+* getUserPasswordHashes()
+* { "user@example.com": "hashedpass" }
+* @param {{void}} {{none}} - No arguments.
+* @returns {{ [email: string]: string }} Stored password hashes keyed by email.
+****/
 const loadPasswordHashes = (): { [email: string]: string } => {
   if (typeof window === 'undefined') return {};
   try {
@@ -131,6 +155,14 @@ const loadPasswordHashes = (): { [email: string]: string } => {
   }
 };
 
+/**
+* Stores password hashes in localStorage, encrypting them when possible.
+* @example
+* savePasswordHashes({'alice@example.com': 'hash123'})
+* undefined
+* @param {{ [email: string]: string }} hashes - Mapping of user emails to password hashes.
+* @returns {void} Completes after attempting to persist the hashes.
+**/
 const savePasswordHashes = (hashes: { [email: string]: string }) => {
   if (typeof window === 'undefined') return;
   try {

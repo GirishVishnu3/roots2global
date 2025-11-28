@@ -30,6 +30,14 @@ if (!global.mongoose) {
   global.mongoose = cached;
 }
 
+/****
+* Establishes and caches a MongoDB connection using mongoose.
+* @example
+* connectDB()
+* mongoose
+* @param {{}} {{}} - No parameters are required for this function.
+* @returns {{Promise<typeof mongoose>}} A promise that resolves to the mongoose instance with an active MongoDB connection.
+****/
 async function connectDB(): Promise<typeof mongoose> {
   // Check if MongoDB URI is available
   if (!MONGODB_URI) {

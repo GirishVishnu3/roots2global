@@ -18,6 +18,14 @@ import Coupon from '../models/Coupon';
 import connectDB from '../lib/db';
 import { passwordSecurity } from '../lib/security';
 
+/****
+* Brief description of the function in one line
+* @example
+* migrateData()
+* undefined
+* @param {{void}} {{Argument}} - Argument description in one line.
+* @returns {{Promise<void>}} Return description in one line.
+****/
 async function migrateData() {
   try {
     console.log('🔄 Starting migration from localStorage to MongoDB...\n');

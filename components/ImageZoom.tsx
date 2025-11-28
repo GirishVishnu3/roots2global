@@ -10,6 +10,14 @@ interface ImageZoomProps {
   className?: string;
 }
 
+/**/ **
+* Renders an image with clickable zoom behavior and accessible controls for opening and closing the enlarged view.
+* @example
+* ImageZoom({ src: '/assets/photo.jpg', alt: 'Product photo' })
+* <JSX.Element>
+* @param {{ImageZoomProps}} props - ImageZoom component props including src, alt, and optional className.
+* @returns {{JSX.Element}} A React element containing the thumbnail and modal zoomed image overlays.
+**/*/
 export default function ImageZoom({ src, alt, className = '' }: ImageZoomProps) {
   const [isZoomed, setIsZoomed] = useState(false);
 

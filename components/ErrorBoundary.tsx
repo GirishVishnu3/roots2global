@@ -24,6 +24,15 @@ export class ErrorBoundary extends Component<Props, State> {
     return { hasError: true, error };
   }
 
+  /**
+  * Logs errors and metadata when a child component throws, using errorTracker for diagnostics.
+  * @example
+  * componentDidCatch(error, errorInfo)
+  * undefined
+  * @param {{Error}} {{error}} - Error object thrown by a child component.
+  * @param {{React.ErrorInfo}} {{errorInfo}} - Additional React error info including component stack.
+  * @returns {{void}} Void return value.
+  **/
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     // Use errorTracker for proper error logging and debugging
     const path = typeof window !== 'undefined' ? (window.location.pathname || undefined) : undefined;
@@ -37,6 +46,14 @@ export class ErrorBoundary extends Component<Props, State> {
     });
   }
 
+  /**
+  * ErrorBoundary stops errors in its children from crashing the whole app by showing a friendly fallback UI, tracking hasError and error state internally and offering a manual refresh flow.
+  * @component
+  * @example
+  *   <ErrorBoundary fallback={<FallbackComponent />} />
+  * @prop {{React.ReactNode}} children - Primary content to display when no rendering error has occurred.
+  * @prop {{React.ReactNode}} [fallback] - Optional custom UI to show when an error has been caught; if omitted a default centered message with a refresh button appears.
+  */
   render() {
     if (this.state.hasError) {
       if (this.props.fallback) {

@@ -69,6 +69,14 @@ export const defaultMetadata: Metadata = {
   },
 };
 
+/**
+* Creates metadata for a product for SEO and social previews.
+* @example
+* generateProductMetadata({ name: 'Sneakers', description: 'Stylish running shoes', image: 'https://example.com/shoe.jpg', price: 120 })
+* { title: 'Sneakers', description: 'Stylish running shoes', openGraph: { title: 'Sneakers', description: 'Stylish running shoes', images: [ { url: 'https://example.com/shoe.jpg', width: 1200, height: 630, alt: 'Sneakers' } ], type: 'website' }, twitter: { card: 'summary_large_image', title: 'Sneakers', description: 'Stylish running shoes', images: ['https://example.com/shoe.jpg'] } }
+* @param {{name: string, description: string, image: string, price: number}} product - Product data used to populate metadata fields.
+* @returns {{title: string, description: string, openGraph: { title: string, description: string, images: { url: string, width: number, height: number, alt: string }[], type: string }, twitter: { card: string, title: string, description: string, images: string[] }}} Metadata object tailored to the product.
+**/
 export function generateProductMetadata(product: {
   name: string;
   description: string;

@@ -8,6 +8,13 @@ interface AuthStore {
 }
 
 // Check authentication status from server
+/**
+* Checks if the current session is authenticated by calling the seller login endpoint.
+* @example
+* sync()
+* true
+* @returns {Promise<boolean>} Resolves to true if authenticated, otherwise false.
+**/
 const checkAuthStatus = async (): Promise<boolean> => {
   try {
     const response = await fetch('/api/seller/login', {

@@ -24,6 +24,13 @@ const statusLabels = {
   delivered: 'Delivered',
 };
 
+/**
+* Renders the authenticated user’s personalized orders dashboard with search and filtering.
+* @example
+* OrdersContent()
+* <div className="container mx-auto px-4 py-12">...</div>
+* @returns {JSX.Element} A component tree displaying the current user’s orders or an empty state prompt.
+**/
 function OrdersContent() {
   const allOrders = useOrderStore((state) => state.getAllOrders());
   const currentUser = useUserAuthStore((state) => state.currentUser);

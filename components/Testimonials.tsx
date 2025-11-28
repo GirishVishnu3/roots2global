@@ -57,6 +57,14 @@ const testimonials = [
   },
 ];
 
+/**/ **
+* Renders a testimonials section with customer quotes and ratings.
+* @example
+* Testimonials()
+* <section>...</section>
+* @param {{void}} {{none}} - No parameters.
+* @returns {{JSX.Element}} JSX element with testimonial content.
+**/*/
 export default function Testimonials() {
   return (
     <section className="py-16 bg-white">

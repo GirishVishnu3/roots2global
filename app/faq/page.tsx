@@ -46,6 +46,14 @@ const faqs = [
   },
 ];
 
+/**
+* Renders the FAQ page with collapsible question panels and a contact prompt.
+* @example
+* FAQPage()
+* <div className="container mx-auto px-4 py-12">…</div>
+* @param {void} - No parameters are required.
+* @returns {JSX.Element} The rendered FAQ page layout with expandable answers.
+**/
 export default function FAQPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 

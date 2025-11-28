@@ -17,6 +17,14 @@ const categories = [
   'Pickels',
 ];
 
+/**
+* Renders the products page with search, filters, sorting, and responsive layout while managing filter state and hydration guarding.
+* @example
+* ProductsPageContent()
+* <div>...products page layout...</div>
+* @param {{void}} _ - No parameters are required for this component.
+* @returns {{JSX.Element}} The products listing page with filtering, search, and sorting controls.
+**/
 function ProductsPageContent() {
   const searchParams = useSearchParams();
   const products = useProductStore((state) => state.getAllProducts());
@@ -291,6 +299,14 @@ function ProductsPageContent() {
   );
 }
 
+/**
+ * Renders the products page with a suspense fallback while product content loads.
+ * @example
+ * ProductsPage()
+ * <Suspense fallback={...}><ProductsPageContent /></Suspense>
+ * @param {{}} {} - No parameters required.
+ * @returns {{JSX.Element}} The JSX structure for the products page with suspense.
+ **/
 export default function ProductsPage() {
   return (
     <Suspense fallback={

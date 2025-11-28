@@ -1,52 +1,92 @@
-name: CodeRabbit Review
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+# CodeRabbit Configuration
+# AI-powered code review and error debugging
 
-on:
-  pull_request:
-    types: [opened, synchronize, reopened]
-  push:
-    branches:
-      - main
-      - develop
+language: en
 
-jobs:
-  coderabbit:
-    name: CodeRabbit AI Review
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+reviewers:
+  - name: "CodeRabbit AI"
+    type: ai
+    enabled: true
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
+# Review settings
+review:
+  # Enable comprehensive code reviews
+  enabled: true
 
-      - name: Install dependencies
-        run: npm ci
+  # Focus areas for reviews
+  focus:
+    - error-handling
+    - security
+    - performance
+    - best-practices
+    - type-safety
+    - accessibility
 
-      - name: Run TypeScript check
-        run: npx tsc --noEmit --skipLibCheck
+  # Ignore patterns
+  ignore:
+    - "**/*.test.ts"
+    - "**/*.test.tsx"
+    - "**/node_modules/**"
+    - "**/.next/**"
+    - "**/dist/**"
+    - "**/build/**"
+    - "**/*.md"
+    - "**/data/products.ts" # Static data file
 
-      - name: Run ESLint
-        run: npm run lint
+# Error debugging settings
+debugging:
+  enabled: true
 
-      - name: CodeRabbit Review
-        uses: coderabbitai/openai-pr-reviewer@latest
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          path: |
-            app/
-            components/
-            lib/
-          review_simple_changes: true
-          review_comment_lgtm: false
-          openai_light_model: gpt-4
-          openai_heavy_model: gpt-4
-          max_files_to_review: 50
-          review_only_changed_files: true
+  # Track error patterns
+  error-patterns:
+    - "console.error"
+    - "console.warn"
+    - "throw new Error"
+    - "catch.*error"
 
+  # Suggest error tracking improvements
+  suggest-error-tracking: true
+
+  # Check for unhandled errors
+  check-unhandled-errors: true
+
+# Code quality checks
+quality:
+  # TypeScript strict mode checks
+  typescript-strict: true
+
+  # React best practices
+  react-best-practices: true
+
+  # Security checks
+  security-checks: true
+
+  # Performance optimizations
+  performance-checks: true
+
+# Suggestions for improvements
+suggestions:
+  # Suggest error boundary improvements
+  error-boundaries: true
+
+  # Suggest error tracking integration
+  error-tracking: true
+
+  # Suggest logging improvements
+  logging-improvements: true
+
+# Paths to review
+paths:
+  include:
+    - "app/**/*.tsx"
+    - "app/**/*.ts"
+    - "components/**/*.tsx"
+    - "components/**/*.ts"
+    - "lib/**/*.ts"
+    - "lib/**/*.tsx"
+  exclude:
+    - "**/node_modules/**"
+    - "**/.next/**"
+    - "**/dist/**"
+    - "**/build/**"

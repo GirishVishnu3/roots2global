@@ -58,6 +58,14 @@ const loadActiveCoupon = (): Coupon | null => {
   }
 };
 
+/**
+ * Stores or clears the active coupon in local storage, handling any errors gracefully
+ * @example
+ * setActiveCoupon(sampleCoupon)
+ * void
+ * @param {{Coupon | null}} coupon - The coupon to persist or null to clear it.
+ * @returns {{void}} Never returns a meaningful value, just side effects.
+ **/
 const saveActiveCoupon = (coupon: Coupon | null) => {
   if (typeof window === 'undefined') return;
   try {
