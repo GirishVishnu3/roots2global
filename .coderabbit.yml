@@ -5,7 +5,7 @@ language: typescript
 reviewers:
   - name: "CodeRabbit AI"
     type: "ai"
-    enabled: true
+    enabled: true 
 
 # Review settings
 review:
