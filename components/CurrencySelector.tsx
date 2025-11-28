@@ -4,6 +4,13 @@ import { useCurrencyStore, CURRENCIES } from '@/lib/currencyStore';
 import { Globe, Search } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
+/**
+* Renders a currency selection dropdown with search, state management, and exchange rate fetching.
+* @example
+* CurrencySelector()
+* <div className="relative">...</div>
+* @returns {JSX.Element} Currency selector dropdown element with search and currency list.
+**/
 export default function CurrencySelector() {
   const { selectedCurrency, setCurrency, getCurrency, fetchExchangeRates } = useCurrencyStore();
   const [isOpen, setIsOpen] = useState(false);

@@ -9,6 +9,14 @@ interface NewsletterProps {
   variant?: 'default' | 'compact';
 }
 
+/**/ **
+* Renders a newsletter signup section that handles validation, subscription state, and variant-specific layouts.
+* @example
+* Newsletter({ variant: 'compact' })
+* <div className="bg-primary-600 ...">...</div>
+* @param {{variant?: 'default'|'compact'}} { variant } - Determines whether to render the default hero-style layout or the compact variant.
+* @returns {{JSX.Element}} The rendered newsletter subscription UI element.
+**/*/
 export default function Newsletter({ variant = 'default' }: NewsletterProps) {
   const subscribe = useNewsletterStore((state) => state.subscribe);
   const [email, setEmail] = useState('');
@@ -16,6 +24,14 @@ export default function Newsletter({ variant = 'default' }: NewsletterProps) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  /**
+  * Handles newsletter subscription form submission, validating input and providing feedback.
+  * @example
+  * handleNewsletterSubmit(event)
+  * undefined
+  * @param {{React.FormEvent}} {{event}} - Event triggered when the newsletter form is submitted.
+  * @returns {{void}} No return value.
+  **/
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     

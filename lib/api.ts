@@ -14,6 +14,13 @@ interface ApiResponse<T> {
 }
 
 class ApiClient {
+  /**
+  * Returns headers with JSON content type and optional user information from local storage.
+  * @example
+  * getHeaders()
+  * { 'Content-Type': 'application/json', 'x-user-id': '123', 'x-is-seller': 'true' }
+  * @returns {HeadersInit} Headers object ready for use in requests.
+  **/
   private getHeaders(): HeadersInit {
     const headers: HeadersInit = {
       'Content-Type': 'application/json',
@@ -41,6 +48,15 @@ class ApiClient {
     return headers;
   }
 
+  /**
+  * Sends an authenticated request to the API and returns parsed JSON or error info.
+  * @example
+  * request('/users', { method: 'GET' })
+  * { success: true, data: {} }
+  * @param {{string}} {{endpoint}} - Endpoint path to append to the base URL.
+  * @param {{RequestInit}} {{options}} - Fetch options merged with default authentication headers.
+  * @returns {{Promise<ApiResponse<T>>}} Return object indicating success with parsed data or error message.
+  **/
   private async request<T>(
     endpoint: string,
     options: RequestInit = {}
@@ -96,6 +112,14 @@ class ApiClient {
   }
 
   // Authentication
+  /**
+  * Registers a user with the provided credentials and personal details.
+  * @example
+  * register({ email: 'user@example.com', password: 'pass', firstName: 'First', lastName: 'Last' })
+  * { user: { ... } }
+  * @param {{email: string; password: string; firstName: string; lastName: string; phone?: string}} userData - User registration payload.
+  * @returns {{user: any}} Promise resolving with the created user info.
+  **/
   async register(userData: {
     email: string;
     password: string;
@@ -125,6 +149,14 @@ class ApiClient {
     return this.request<any>(`/orders/${orderId}`);
   }
 
+  /**/ **
+  * Creates a new order by sending the provided order data to the API.
+  * @example
+  * createOrder({items: [], shippingAddress: {street: '123 Main St'}, total: 0})
+  * { order: {...} }
+  * @param {{ items: any[]; shippingAddress: any; total: number; paymentIntentId?: string; paymentMethod?: 'card' | 'cod'; }} orderData - The order payload including items, shipping info, total, and optional payment details.
+  * @returns {{ order: any }} The API response containing the created order.
+  **/*/
   async createOrder(orderData: {
     items: any[];
     shippingAddress: any;

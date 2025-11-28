@@ -5,6 +5,13 @@ import { Suspense } from 'react';
 import Link from 'next/link';
 import { CheckCircle, Package, Mail, ArrowRight } from 'lucide-react';
 
+/**
+* Render order success UI that adapts content based on query parameters.
+* @example
+* OrderSuccessContent()
+* <div className="container mx-auto px-4 py-12">...</div>
+* @returns {{JSX.Element}} JSX markup displaying the order confirmation experience.
+**/
 function OrderSuccessContent() {
   const searchParams = useSearchParams();
   const paymentIntentId = searchParams.get('payment_intent');
@@ -102,6 +109,13 @@ function OrderSuccessContent() {
   );
 }
 
+/**
+ * Renders the suspense-wrapped order success page content.
+ * @example
+ * OrderSuccessPage()
+ * <OrderSuccessContent />
+ * @returns {JSX.Element} The suspense boundary containing the order success content.
+ */
 export default function OrderSuccessPage() {
   return (
     <Suspense fallback={

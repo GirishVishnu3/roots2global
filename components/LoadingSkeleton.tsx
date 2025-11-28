@@ -1,3 +1,10 @@
+/**
+* Renders a placeholder skeleton for a product card while content loads.
+* @example
+* ProductCardSkeleton()
+* <div className="bg-white rounded-lg shadow-md overflow-hidden animate-pulse">...</div>
+* @returns {JSX.Element} Skeleton markup for a product card.
+**/
 export function ProductCardSkeleton() {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden animate-pulse">
@@ -21,6 +28,13 @@ export function ProductListSkeleton({ count = 8 }: { count?: number }) {
   );
 }
 
+/**
+* Renders a pulsing skeleton mimicking an order card layout.
+* @example
+* OrderCardSkeleton()
+* <div className="bg-white rounded-lg shadow-md p-6 animate-pulse">...</div>
+* @returns {JSX.Element} Loading skeleton markup for an order card.
+**/
 export function OrderCardSkeleton() {
   return (
     <div className="bg-white rounded-lg shadow-md p-6 animate-pulse">
@@ -41,6 +55,14 @@ export function OrderCardSkeleton() {
   );
 }
 
+/**
+ * Renders a skeleton loading state for the page layout.
+ * @example
+ * PageSkeleton()
+ * <div className="container mx-auto ..."></div>
+ * @param {{}} - No arguments required.
+ * @returns {{JSX.Element}} A skeleton loading markup for the page.
+ **/
 export function PageSkeleton() {
   return (
     <div className="container mx-auto px-4 py-12 animate-pulse">

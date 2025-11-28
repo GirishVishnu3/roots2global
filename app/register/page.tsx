@@ -7,6 +7,13 @@ import { UserPlus, Eye, EyeOff, Mail, User, Phone } from 'lucide-react';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
 
+/**
+* Renders the registration form, handles validation, and submits user signup details.
+* @example
+* RegisterPage()
+* <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-12">...</div>
+* @returns {JSX.Element} The registration page component with form and UI handlers.
+**/
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -29,6 +36,14 @@ export default function RegisterPage() {
     });
   };
 
+  /**
+  * Handle registration form submission by validating input, calling register, and managing UI feedback.
+  * @example
+  * sync(e)
+  * Promise<void>
+  * @param {{React.FormEvent}} {{e}} - Form submission event.
+  * @returns {{Promise<void>}} Handles the async registration flow.
+  **/
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);

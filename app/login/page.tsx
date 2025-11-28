@@ -7,6 +7,14 @@ import { LogIn, Eye, EyeOff, Mail } from 'lucide-react';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
 
+/**
+* Renders the login page, securely restores valid sessions, and orchestrates authentication flow.
+* @example
+* LoginPage()
+* <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-12">…</div>
+* @param {{void}} none - Component does not accept any arguments.
+* @returns {{JSX.Element}} Login page markup with form, password controls, and routing logic.
+**/
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -60,6 +68,14 @@ export default function LoginPage() {
     }
   }, [currentUser, router]);
 
+  /****
+  * Handles login form submission, authenticating and redirecting on success.
+  * @example
+  * sync(event)
+  * Promise<void>
+  * @param {{React.FormEvent}} e - Form submit event.
+  * @returns {{Promise<void>}} Promise resolving when login flow completes.
+  ****/
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);

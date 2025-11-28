@@ -22,6 +22,15 @@ interface AddressStore {
 }
 
 // Helper function to check if two addresses are the same
+/**
+* Compare two shipping addresses for equality across all fields.
+* @example
+* compareAddresses(addr1, addr2)
+* true
+* @param {{ShippingAddress}} addr1 - First address to compare.
+* @param {{ShippingAddress}} addr2 - Second address to compare.
+* @returns {{boolean}} True if all address fields match.
+**/
 const areAddressesEqual = (addr1: ShippingAddress, addr2: ShippingAddress): boolean => {
   return (
     addr1.firstName === addr2.firstName &&

@@ -14,6 +14,14 @@ interface BulkOrderModalProps {
   onClose: () => void;
 }
 
+/**
+* Renders a bulk order modal with pricing overview, tiered discounts, and inquiry submission logic.
+* @example
+* BulkOrderModal({ product, isOpen: true, onClose: () => {} })
+* <JSX.Element />
+* @param {{BulkOrderModalProps}} {{props}} - Props controlling the selected product, modal visibility, and close callback.
+* @returns {{JSX.Element | null}} Returns the modal markup when open or null when closed.
+**/
 export default function BulkOrderModal({ product, isOpen, onClose }: BulkOrderModalProps) {
   const formatPrice = useCurrencyStore((state) => state.formatPrice);
   const [formData, setFormData] = useState({
@@ -51,6 +59,14 @@ export default function BulkOrderModal({ product, isOpen, onClose }: BulkOrderMo
   const finalPrice = originalPrice - discountAmount;
   const pricePerUnit = product.price * (1 - discount);
 
+  /**
+  * Handles bulk order form submission by validating input, sending inquiry, and managing UI feedback.
+  * @example
+  * sync(event)
+  * undefined
+  * @param {{React.FormEvent}} e - Form submission event from bulk order modal.
+  * @returns {{Promise<void>}} Performs asynchronous submission flow without returning a value.
+  **/
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
