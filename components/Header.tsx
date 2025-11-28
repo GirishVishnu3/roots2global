@@ -255,7 +255,7 @@ export default function Header() {
                 onFocus={() => searchQuery.length > 0 && setShowSearch(true)}
                 className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all duration-200"
               />
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
             </form>
             
             {/* Search Suggestions Dropdown */}
