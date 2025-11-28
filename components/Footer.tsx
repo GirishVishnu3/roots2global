@@ -2,6 +2,14 @@ import Link from 'next/link';
 import { Facebook, Twitter, Instagram, Mail } from 'lucide-react';
 import Newsletter from './Newsletter';
 
+/**
+* Renders the Roots2Global themed footer with navigation links, newsletter signup, and contact links.
+* @example
+* Footer()
+* <footer className="bg-gray-900 text-white mt-auto">...</footer>
+* @param {{void}} {{none}} - No parameters required.
+* @returns {{JSX.Element}} The footer section JSX for the overall page layout.
+**/
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white mt-auto">

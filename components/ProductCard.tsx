@@ -15,6 +15,14 @@ interface ProductCardProps {
   product: Product;
 }
 
+/****
+* Renders a product card with image, wishlist, and add-to-cart controls for a given product.
+* @example
+* ProductCard({ product: sampleProduct })
+* <div class="bg-white rounded-lg shadow-md ...">...</div>
+* @param {{ProductCardProps}} {{props}} - Props object containing the product data to display.
+* @returns {{JSX.Element}} Return rendered product card element ready for display.
+****/
 function ProductCard({ product }: ProductCardProps) {
   const addItem = useCartStore((state) => state.addItem);
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlistStore();

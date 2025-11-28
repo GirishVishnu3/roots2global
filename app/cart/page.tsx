@@ -9,6 +9,14 @@ import { Minus, Plus, Trash2, ShoppingBag, Image as ImageIcon, Lock } from 'luci
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
+/**
+* Renders a cart item image and shows a placeholder icon if loading fails.
+* @example
+* CartItemImage({src: '/product.jpg', alt: 'Product'})
+* <Image src="/product.jpg" alt="Product" />
+* @param {{src: string; alt: string}} {{props}} - Object containing image source URL and alt text.
+* @returns {{JSX.Element}} JSX markup for the image or fallback icon.
+**/
 function CartItemImage({ src, alt }: { src: string; alt: string }) {
   const [imageError, setImageError] = useState(false);
 
@@ -31,6 +39,14 @@ function CartItemImage({ src, alt }: { src: string; alt: string }) {
   );
 }
 
+/**
+* Renders the shopping cart page with hydrated state, pricing, discounts, and checkout actions.
+* @example
+* CartPage()
+* <div className="container mx-auto ...">...</div>
+* @param {{void}} {{void}} - No arguments.
+* @returns {{JSX.Element}} The hydrated cart UI including items, summary, and navigation controls.
+**/
 export default function CartPage() {
   const { items, updateQuantity, removeItem, getTotalItems, clearCart } = useCartStore();
   const currentUser = useUserAuthStore((state) => state.currentUser);

@@ -12,6 +12,13 @@ import { logWarning } from '@/lib/errorTracking';
 // Lazy load heavy modal component
 const BulkOrderModal = lazy(() => import('@/components/BulkOrderModal'));
 
+/**
+* Renders the bulk orders landing page with user validation, product listings, and CTA/tiers content for enterprise buyers.
+* @example
+* BulkOrdersPage()
+* <BulkOrdersPage />
+* @returns {JSX.Element} React element representing the bulk orders experience.
+**/
 export default function BulkOrdersPage() {
   const router = useRouter();
   const currentUser = useUserAuthStore((state) => state.currentUser);

@@ -7,6 +7,13 @@ import ProtectedRoute from '@/components/ProtectedRoute';
 import { Heart, ShoppingBag } from 'lucide-react';
 import Link from 'next/link';
 
+/**
+* Renders the wishlist interface showing saved items, clear action, and empty state messaging.
+* @example
+* WishlistContent()
+* <div className="container mx-auto px-4 py-12">…</div>
+* @returns {JSX.Element} JSX structure for the wishlist page layout.
+**/
 function WishlistContent() {
   const { items, clearWishlist } = useWishlistStore();
 

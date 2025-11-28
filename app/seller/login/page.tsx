@@ -6,6 +6,14 @@ import { useAuthStore } from '@/lib/authStore';
 import { Lock, Eye, EyeOff } from 'lucide-react';
 import toast from 'react-hot-toast';
 
+/**
+* Renders the seller login interface with password input, toggle visibility, and submit handling.
+* @example
+* SellerLoginPage()
+* <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">...</div>
+* @param {{void}} none - No arguments are required.
+* @returns {{JSX.Element}} Rendered seller login form with toast feedback and navigation.
+**/
 export default function SellerLoginPage() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -13,6 +21,14 @@ export default function SellerLoginPage() {
   const login = useAuthStore((state) => state.login);
   const router = useRouter();
 
+  /**
+  * Handles form submission by attempting to log in and redirecting on success.
+  * @example
+  * sync(event)
+  * undefined
+  * @param {{React.FormEvent}} e - Event from the form submission that should be prevented from default behavior.
+  * @returns {{Promise<void>}} Promise that resolves once login logic and loading state cleanup finish.
+  **/
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);

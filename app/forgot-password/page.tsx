@@ -7,6 +7,13 @@ import { Mail, Key, Eye, EyeOff, ArrowLeft } from 'lucide-react';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
 
+/**
+* Renders the forgot password UI that toggles between requesting a reset link and using a token to reset the password.
+* @example
+* ForgotPasswordPageContent()
+* <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-12">...</div>
+* @returns {JSX.Element} JSX element representing the forgot/reset password page content.
+**/
 function ForgotPasswordPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -26,6 +33,14 @@ function ForgotPasswordPageContent() {
   const [loading, setLoading] = useState(false);
   const [resetTokenGenerated, setResetTokenGenerated] = useState<string | null>(null);
 
+  /**
+  * Handles password reset form submission by validating input, showing feedback, and requesting a reset token.
+  * @example
+  * sync({ preventDefault: () => {}, ... })
+  * undefined
+  * @param {{React.FormEvent}} e - Form event used to prevent default submission behavior.
+  * @returns {{Promise<void>}} Promise resolving when the reset flow handling completes.
+  **/
   const handleRequestReset = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -52,6 +67,14 @@ function ForgotPasswordPageContent() {
     setLoading(false);
   };
 
+  /**
+  * Handles the password reset submission workflow by validating input, triggering reset, and redirecting or showing errors
+  * @example
+  * sync(event)
+  * void
+  * @param {{React.FormEvent}} {{e}} - Form submission event object to prevent default behavior.
+  * @returns {{Promise<void>}} Resolves after processing reset logic and updating UI state.
+  **/
   const handleResetPassword = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -282,6 +305,14 @@ function ForgotPasswordPageContent() {
   );
 }
 
+/**
+* Returns the forgot-password page layout with a loading fallback while suspense resolves.
+* @example
+* ForgotPasswordPage()
+* <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">...</div>}><ForgotPasswordPageContent /></Suspense>
+* @param {{void}} _ - No arguments are required.
+* @returns {{React.ReactNode}} React element tree representing the forgot-password page.
+**/
 export default function ForgotPasswordPage() {
   return (
     <Suspense fallback={

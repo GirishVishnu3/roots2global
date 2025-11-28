@@ -8,6 +8,13 @@ import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
+/**
+* Renders the authenticated account management UI including profile details, password controls, and quick links.
+* @example
+* AccountContent()
+* <div className="container mx-auto px-4 py-12">...</div>
+* @returns {{JSX.Element | null}} The account page JSX or null if no user is available.
+**/
 function AccountContent() {
   const { currentUser, updateProfile, logout, changePassword } = useUserAuthStore();
   const router = useRouter();
@@ -42,6 +49,14 @@ function AccountContent() {
     }
   }, [currentUser]);
 
+  /****
+  * Handles form submission to update user profile and notify the user.
+  * @example
+  * sync(someEvent)
+  * undefined
+  * @param {{React.FormEvent}} {{e}} - Form submit event to prevent default behavior and trigger profile updates.
+  * @returns {{void}} void return indicating no explicit value.
+  ****/
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -62,6 +77,14 @@ function AccountContent() {
     router.push('/');
   };
 
+  /**
+  * Handles password change form submission, validating matching passwords and updating the user password.
+  * @example
+  * sync(e)
+  * undefined
+  * @param {{React.FormEvent}} {{e}} - The form submission event triggering the password change.
+  * @returns {{Promise<void>}} Resolves once the password update attempt completes.
+  **/
   const handlePasswordChange = async (e: React.FormEvent) => {
     e.preventDefault();
     setPasswordLoading(true);

@@ -31,6 +31,13 @@ const statusIcons = {
   delivered: CheckCircle,
 };
 
+/**
+* Render the seller orders dashboard with filtering, sorting, status counts, and interactive controls.
+* @example
+* SellerOrdersContent()
+* <JSX.Element />
+* @returns {JSX.Element} Seller orders dashboard UI component.
+**/
 function SellerOrdersContent() {
   const orders = useOrderStore((state) => state.getAllOrders());
   const updateOrderStatus = useOrderStore((state) => state.updateOrderStatus);

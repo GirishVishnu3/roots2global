@@ -31,6 +31,14 @@ const statusSteps = [
   { key: 'delivered', label: 'Delivered', icon: CheckCircle },
 ];
 
+/**
+* Renders the seller-facing order detail view with status timeline, packing list, summary, and quick actions.
+* @example
+* SellerOrderDetailContent()
+* <div className="container mx-auto px-4 py-12">…</div>
+* @param {void} none - This component does not accept arguments.
+* @returns {JSX.Element | null} The detailed order page UI or a fallback message when the order is missing.
+**/
 function SellerOrderDetailContent() {
   const params = useParams();
   const orderId = params?.id as string;

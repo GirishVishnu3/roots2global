@@ -14,6 +14,13 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 const Newsletter = lazy(() => import('@/components/Newsletter'));
 const StructuredData = lazy(() => import('@/components/StructuredData'));
 
+/**/ **
+* Render the home page with session validation, hero, features, and footer content.
+* @example
+* Home()
+* <JSX.Element>
+* @returns {JSX.Element} React element representing the fully composed home page.
+* /*/
 export default function Home() {
   const products = useProductStore((state) => state.getAllProducts());
   const currentUser = useUserAuthStore((state) => state.currentUser);

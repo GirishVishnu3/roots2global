@@ -7,6 +7,14 @@ const SELLER_SESSION_COOKIE = 'seller-session';
 // Check if seller is authenticated
 // Note: In production, this should validate against a database or Redis
 // For now, we validate the token format and expiration timestamp
+/****
+* Brief description of the function in one line
+* @example
+* isSellerAuthenticated(request)
+* true
+* @param {{NextRequest}} {{request}} - Request object containing seller session cookie.
+* @returns {{boolean}} Return description in one line.
+****/
 function isSellerAuthenticated(request: NextRequest): boolean {
   const sessionToken = request.cookies.get(SELLER_SESSION_COOKIE);
   
@@ -39,6 +47,14 @@ function isSellerAuthenticated(request: NextRequest): boolean {
   return true;
 }
 
+/**
+* Ensures seller routes are protected and handles redirections for authentication.
+* @example
+* middleware(request)
+* NextResponse
+* @param {{NextRequest}} {{request}} - Incoming request to validate seller authentication and routing.
+* @returns {{NextResponse}} Response that either redirects or allows the request to continue.
+**/
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
