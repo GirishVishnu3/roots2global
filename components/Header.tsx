@@ -255,7 +255,7 @@ export default function Header() {
                 onFocus={() => searchQuery.length > 0 && setShowSearch(true)}
                 className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all duration-200"
               />
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
             </form>
             
             {/* Search Suggestions Dropdown */}
@@ -409,7 +409,7 @@ export default function Header() {
                         const itemTotal = priceInfo.discounted * item.quantity;
                         return (
                           <div key={item.id} className="p-4 border-b hover:bg-gray-50 transition-colors flex items-center space-x-3">
-                          <div className="w-12 h-12 bg-gray-100 rounded overflow-hidden flex-shrink-0 relative">
+                          <div className="w-12 h-12 bg-gray-100 rounded overflow-hidden shrink-0 relative">
                             <Image
                               src={item.image}
                               alt={item.name}
@@ -475,7 +475,7 @@ export default function Header() {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent"
                 />
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
               </div>
             </form>
             <div className="flex flex-col space-y-4">

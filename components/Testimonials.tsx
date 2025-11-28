@@ -84,7 +84,7 @@ export default function Testimonials() {
               className="bg-gray-50 rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-shadow"
             >
               <div className="flex items-start mb-4">
-                <Quote className="w-8 h-8 text-primary-600 opacity-50 mr-2 flex-shrink-0" />
+                <Quote className="w-8 h-8 text-primary-600 opacity-50 mr-2 shrink-0" />
                 <div className="flex-1">
                   <div className="flex items-center mb-2">
                     {[...Array(testimonial.rating)].map((_, i) => (
